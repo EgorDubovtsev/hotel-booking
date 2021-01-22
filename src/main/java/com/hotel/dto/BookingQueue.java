@@ -24,6 +24,7 @@ public class BookingQueue {
     }
 
     public synchronized BookingRequest poll() throws InterruptedException {
+        logger.debug("Queue size before executing poll is {}",queue.size());
 
         while (queue.isEmpty()) {
             wait();
