@@ -7,13 +7,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Producer extends Thread {
     private BookingQueue bookingQueue;
-    private static final AtomicInteger SHOULD_REPEAT = new AtomicInteger();
+    private static final AtomicInteger SHOULD_REPEAT = new AtomicInteger(15);
     private static final AtomicInteger REPEAT_COUNT = new AtomicInteger(0);
 
-    public Producer(String name, BookingQueue bookingQueue,int shouldRepeat) {
+    public Producer(String name, BookingQueue bookingQueue) {
         super(name);
         this.bookingQueue = bookingQueue;
-        SHOULD_REPEAT.set(shouldRepeat);
     }
 
     @Override
